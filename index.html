@@ -21,6 +21,12 @@
 		padding:0;
 	}
 
+	.viz
+	{
+		height: 50%;
+		width:50%;
+
+	}
 	/* Centered texts in each section
 	* --------------------------------------- */
 	.section{
@@ -109,14 +115,18 @@
 			<source src="smoke.webm" type="video/webm">
 		</video>
 		<div class="layer">
-			<h1>Druuuugs</h1>
+			<h1> Legalize it ? </h1>
 		</div>
 	</div>
 	<div class="section" id="section1">
-	    <div class="slide" id="slide1"><h1>Legalize</h1></div>
-	    <div class="slide" id="slide2"><h1>it</h1></div>
+	    <div class="slide" id="slide1"><h1>Legalize</h1> <br/> <img class='viz' src="imgs/Viz1_1.png" alt="Viz1_1"/> </div>
+	    <div class="slide" id="slide2"><h1>it</h1> <br/> <img class='viz' src="imgs/Viz1_2.png" alt="Viz1_2"/> </div>
 	</div>
-	<div class="section" id="section2"><h1> images <br />forage</h1></div>
+	<div class="section" id="section2"><h1> images <br />forage</h1> <br/> <img class='viz' src="imgs/Viz2.png" alt="Viz1"/> </div>
+	<div class="section" id="section3"><h1> Sec </h1><br/> <img class='viz' src="imgs/Viz3.png" alt="Viz1"/></div>
+	<div class="section" id="section4"><h1> Lorem <br />Ipsum</h1><br/> <img class='viz' src="imgs/Viz4.png" alt="Viz1"/></div>
+
+
 </div>
 
 <script type="text/javascript" src="dist/fullpage.js"></script>
@@ -124,11 +134,11 @@
 
 <script type="text/javascript">
     var myFullpage = new fullpage('#fullpage', {
-        anchors: ['firstPage', 'secondPage', '3rdPage'],
-        sectionsColor: ['#C63D0F', '#1BBC9B', '#7E8F7C'],
+        anchors: ['firstPage', 'secondPage', '3rdPage','4thPage','5thPage'],
+        sectionsColor: ['#C63D0F', '#1BBC9B', '#7E8F7C','#404040','#404040'],
         navigation: true,
         navigationPosition: 'right',
-        navigationTooltips: ['First page', 'Second page', 'Third and last page']
+        navigationTooltips: ['First page', 'Second page', 'Third page','Fourth Page','Fifth Page']
     });
 </script>
 
