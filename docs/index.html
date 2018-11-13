@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title> Deal with it </title>
+        <meta name="author" content="Yassine Rachidi, Joséphine De Leusse, Marion Duhirel, Antoine Denis" />
+        <meta name="description" content="Data vizualisation of cannabis phenomenon" />
+        <meta name="keywords"  content="data vizu, data vizualisation, Télécom, ParisTech, Télécom ParisTech, cannabis, SciencesPo" />
+        <meta name="Resource-type" content="Document" />
+        <link rel="icon" href="images/V2/icon/weed.ico" />
+        <script src="js/Chart.bundle.js"></script>
+        <script src="js/utils.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="js/scrolloverflow.js"></script>
+        <script type="text/javascript" src="js/jquery.fullPage.js"></script>
+        <script type="text/javascript" src="js/examples.js"></script>
+        <!--[if IE]><script type="text/javascript">var console = { log: function() {} };</script><![endif]-->
+        <link rel="stylesheet" href="css/ammap.css" type="text/css">
+        <script src="js/ammap2.js" type="text/javascript"></script>
+        <script src="js/worldLow.js" type="text/javascript"></script>
+        <link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css"/>
+        <link rel="stylesheet" type="text/css" href="css/examples.css"/>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Spectral:300" rel="stylesheet">
+        
+        <script src="https://YOUR-SERVER/javascripts/api/tableau-2.min.js"></script>
+
+        <!--  wordcloud-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vega-lite/2.0.0-beta.3/vega-lite.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vega/3.0.0-beta.31/vega.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vega-embed/3.0.0-beta.14/vega-embed.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/vega-tooltip/0.3.3/vega-tooltip.min.css"></link>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vega-tooltip/0.3.3/vega-tooltip.min.js"></script>
+
+
+        <!-- Config de FullPage -->
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#fullpage').fullpage({
+                    verticalCentered: false,
+                    lockAnchors: false,
+                    anchors:['0','1', '2', '3', '4','5', '6', '7', '8', '9', '10', '11']
+
+                });
+            });
+            </script>
+
+        <!-- Style de la page (CSS) -->
+        <style>
+
+            /* Titres */
+            h1{
+                font-size: 2em;
+                font-family: 'Roboto', sans-serif;
+                color: #000000;
+                margin: 5%;
+                padding-top: 20%;
+                text-align: left;
+            }
+            /* Sous-Titre */
+            h2{
+                font-size: 1.5em;
+                font-family: 'Open Sans', sans-serif;
+                color: #9d9c95;
+                margin: 5%;
+            }
+            /* Corps */
+            h3{
+                font-size: 1.2em;
+                font-family: 'Spectral', serif;
+                color: #525252;
+                margin: 5%;
+                text-align: justify;
+
+            }
+
+
+            /* Classe d'objet */
+            .section{
+                position: relative;
+                text-align:center;
+                overflow: hidden;
+            }
+            .left {
+                position: absolute;
+                height: 100%;
+                top: 0;
+                width: 46.5%;
+                left: 0;
+                z-index: 10;
+            }
+            .left_grey {
+                position: absolute;
+                height: 100%;
+                top: 0;
+                width: 46.5%;
+                left: 0;
+                z-index: -2;
+                background-color: #dddddd;
+            }
+            .right {
+                position: absolute;
+                height: 100%;
+                top: 0;
+                width: 53.5%;
+                left: 46.5%;
+                z-index: 20;
+            }
+            .scroll {
+                position: absolute;
+                width: 10%;
+                left: 18.25%;
+                bottom: 0%;
+                z-index: 99;
+            }
+            .scroll_right {
+                position: absolute;
+                width: 10%;
+                left: 68.25%;
+                bottom: 0%;
+                z-index: 90;
+            }
+            .scroll_txt {
+                position: relative;
+                right: 26.5%;
+                top: 80%;
+                z-index: 10;
+            }
+            .background {
+                position: absolute;
+                top: 0;
+                width: 100%;
+                left: 0;
+                z-index: 1;
+            }
+            .progressBar {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                height: 1%;
+                background-color: #1e1e1e;
+            }
+
+            /* Mise en forme specifique a chaque slide */
+            #section0 .left{
+                position: absolute;
+                height: 100%;
+                top: 0;
+                width: 46.5%;
+                left: 0;
+                z-index: -1;
+                background-color: #dddddd;
+            }
+            #section0 #logo {
+                position: absolute;
+                top: 10%;
+                width: 50%;
+                left: 0%;
+                z-index: 99;
+            }
+            #section0 .right h1{
+                position: relative;
+                text-align: right;
+                padding-right: 5%;
+                top: 45%;
+            }
+
+            #section0 .right h2{
+                position: relative;
+                text-align: right;
+                padding-right: 5%;
+                top: 70%;
+            }
+
+            #section1 .layer{
+                position: absolute;
+                width: 100%;
+                left: 0;
+                top: 20%;
+                -webkit-transform: translate3d(0,0,0);
+                -ms-transform: translate3d(0,0,0);
+                transform: translate3d(0,0,0);
+            }
+            #section1 .image{
+                position: absolute;
+                width: 100%;
+                left: 0;
+                bottom: 5%;
+            }
+            #section1 .disclaimer{
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+                width:35em;
+                font-size: 0.70em
+            }
+            #section1 .right {
+                text-align: left;
+            }
+            #section1 .left h1{
+                text-align: center;
+            }
+            #section1 #source {
+                position: absolute;
+                bottom: -3%;
+                right: -2%;
+            }
+
+            #section2 .left {
+                text-align: left;
+            }
+            #section2 .image {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                left: 0;
+                z-index: 1;
+            }
+            #section2 .layer{
+                position: absolute;
+                z-index: 4;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 20%;
+                -webkit-transform: translate3d(0,0,0);
+                -ms-transform: translate3d(0,0,0);
+                transform: translate3d(0,0,0);
+            }
+            #section2 #slide2 img {
+                position: relative;
+                height: 40%;
+            }
+            #section2 #slide4 img {
+                position: relative;
+                width: 50%;
+
+            }
+            #section2 .right h1 {
+                padding-top: 0%;
+                text-align: center;
+            }
+
+            #section3 .image {
+                position:relative;
+                width: 35%;
+                top:25%;
+              
+            }
+            #section3 h1 {
+                position: absolute;
+                text-align: center;
+                bottom:70%;
+                left:28%;
+            }
+            #section3 .left {
+                text-align: left;
+            }
+            #section3 .legend {
+
+                width: 100%;
+                position: absolute;
+                bottom: 0;
+            }
+            #section3 .legend h3{
+                text-align: right;
+                font-size: 1em;
+                margin-bottom: 2%;
+            }
+
+            #section4 .left h1 {
+                padding-top: 5%;
+            }
+            #section4 .right h1 {
+                padding-top: 0%;
+            }
+            #section4 .image {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                left: 0;
+                z-index: 1;
+            }
+            #section4 .left {
+                text-align: left;
+            }
+
+            #section5 .left h1 {
+                padding-top: 5%;
+            }
+            #section5 .right h1 {
+                padding-top: 0%;
+            }
+            #section5 .image {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                left: 0;
+                z-index: 1;
+            }
+            #section5 .left {
+                text-align: left;
+            }
+
+            #section6 h1 {
+                margin: 2%;
+                padding-top: 0%;
+            }
+            #section6 h2 {
+                margin: 2%;
+                padding-top: 0%;
+            }
+            #section6 .graph {
+                position: relative;
+                left: 15%;
+                width: 70%;
+                margin-bottom: -2%;
+            }
+            #section6 {
+                text-align: left;
+            }
+            #section6 .legend {
+                width: 100%;
+                position: absolute;
+                bottom: 0;
+            }
+            #section6 .legend h3{
+                text-align: right;
+                font-size: 1em;
+                margin-right: 2%;
+                margin-bottom: 1%;
+            }
+
+            #section7 .image{
+                position: absolute;
+                width: 100%;
+                left: 0;
+                bottom: 5%;
+                z-index: -1;
+            }
+            #section7 h1 {
+                padding-top: 10%;
+            }
+            #section7 .titre7 {
+                position: absolute;
+                width: 100%;
+                left: 0;
+            }
+            #section7 .titre7 h2{
+                text-align: center;
+            }
+            #section7 .left {
+                text-align: left;
+            }
+
+            #section8 .image{
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                left: 0;
+                z-index: 1;
+            }
+            #section8 .right h1 {
+                padding-top: 10%;
+            }
+            #section8 .left {
+                text-align: left;
+            }
+            #section8 .left h1 {
+                padding-top: 10%;
+            }
+            #section8 .right h2 {
+                text-align: left;
+            }
+            #section8 .legend {
+                width: 100%;
+                position: absolute;
+                bottom: 0;
+            }
+            #section8 .legend h3{
+                text-align: right;
+                font-size: 1em;
+                margin-bottom: 2%;
+            }
+
+            #section9 .background {
+                z-index: -1;
+            }
+            #section9 h1 {
+                padding-top: 0%;
+                margin-left: 25%;
+                text-align: right;
+            }
+            #section9 h3 {
+                text-align: justify;
+            }
+
+            #section10 {
+                text-align: left;
+            }
+            #section10 h1 {
+                padding-top: 0;
+                margin: 0;
+                margin-left: 5%;
+                margin-right: 5%;
+
+                margin-top: 3%;
+            }
+            #section10 h2 {
+                padding-top: 0;
+                margin: 0;
+                margin-left: 5%;
+                margin-right: 5%;
+            }
+            #section10 .maps {
+                position: absolute;
+                top: 30%;
+                left: 0px;
+                width: 100%;
+            }
+            #section10 #textMap {
+                position: absolute;
+                top:0;
+                height: 30%;
+                width: 100%;
+            }
+            #section10 .legend {
+                width: 100%;
+                position: absolute;
+                bottom: 0;
+            }
+            #section10 .legend h3{
+                text-align: right;
+                font-size: 1em;
+                margin-right: 2%;
+                margin-bottom: 0;
+            }
+
+            #section11 {
+                text-align: left;
+            }
+            #section11 .image {
+                z-index: -1;
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                left: 0;
+            }
+            #section11 .left {
+                background-color: rgba(1, 1, 1, 0);
+            }
+            #section11 h1 {
+                padding-top: 0;
+            }
+            #section11 h3 {
+                text-align: justify;
+            }
+
+        </style>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112541222-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-112541222-1');
+        </script>
+
+
+    </head>
+    <body>
+    <div id="fullpage">
+
+        <div class="section" id="section0">
+            <a href="#1"><img id="scroll_1" src="images/V2/Slide%201/1_scroll.png" alt="family" class="scroll"></a>
+            <h2 class="scroll_txt">Scroll </h2>
+            <div class="left">
+
+            </div>
+
+            <div class="right">
+                <h1> Deal with it </h1>
+            </div>
+
+            <div class="right">
+                <h2>Exploration of the cannabis phenomenon in the context of several recent legalisations.
+                </h2>
+            </div>
+            <img id="logo" src="images/V2/Slide%201/1_backgroundW.png" >
+        </div>
+
+        <div class="section" id="section1">
+
+           <div class="disclaimer" ; " data-anchor="Intro"> 
+            <h1>Disclaimer</h1>
+            <h3> Il découle une histoire millénaire de la consommation des drogues.
+Ayant traversé les âges, elle peut être considérée comme le marqueur d’une époque. Tantôt symbole de la contre-culture, elle est également devenue une arme de guerre jusqu’à être considérée comme un traitement thérapeutique. Si sa réputation néfaste lui colle à la peau, la société consomme, restreint, perçoit sa consommation de manière complexe. 
+C’est à la rencontre de ces contradictions, que nous souhaiterions étudier la consommation du cannabisnet étudier en particulier l’impact de la légalisation/décriminalisation. 
+Il découle une histoire millénaire de la consommation des drogues.
+Ayant traversé les âges, elle peut être considérée comme le marqueur d’une époque. Tantôt symbole de la contre-culture, elle est également devenue une arme de guerre jusqu’à être considérée comme un traitement thérapeutique. Si sa réputation néfaste lui colle à la peau, la société consomme, restreint, perçoit sa consommation de manière complexe. 
+C’est à la rencontre de ces contradictions, que nous souhaiterions étudier la consommation du cannabisnet étudier en particulier l’impact de la légalisation/décriminalisation. 
+             </h3>   
+            </div>
+        </div>
+        <div class="section" id="section2">
+            <h1> Cannabis legal status around the world </h1>
+            
+            
+        </div>
+
+        <div class="section" id="section3">
+            <h1> Inspired by american way of life </h1>
+            <img src="images/number_smoker_usa.png" class="image">
+            
+
+        </div>
+
+        <div class="section" id="section4">
+           <a href="#8"><img id="scroll_7" src="images/V2/Slide%201/1_scroll.png" alt="family" class="scroll_right"></a>
+            <div class="left_grey"></div>
+            <div class="left">
+                <h1> Who are the smokers ? </h1>
+                <h2> Smoker isn’t a gender matter </h2>
+                <img src="images/V2/Slide%208/8_missing.png" class="image">
+            </div>
+            <div class="right">
+                <h1>AA</h1>
+
+                <div id="titre92" class="titre7">
+                    <h2>AAAAA.</h2>
+                </div>
+                <div id="titre93" class="titre7">
+                    <h2>AAAAAAA</h2>
+                </div>
+                <div id="titre94" class="titre7">
+                    <h2>aAAAAAAAAAA</h2>
+                </div>
+                <img src="images/V2/Slide%208/mig0.png" id="mig0" alt="mig0" class="image">
+                <img src="images/V2/Slide%208/mig1.png" id="mig1" alt="mig1" class="image">
+                <img src="images/V2/Slide%208/mig2.png" id="mig2" alt="mig2" class="image">
+                <div id="progress7" class="progressBar"></div>
+            </div>
+            <script>
+                var index2 = 0;
+                var tenSecBis = 0;
+                document.getElementById("mig1").style.visibility = 'hidden';
+                document.getElementById("mig2").style.visibility = 'hidden';
+                document.getElementById("titre93").style.visibility = 'hidden';
+                document.getElementById("titre94").style.visibility = 'hidden';
+                document.getElementById("scroll_7").style.visibility = 'hidden';
+                document.getElementById("progress7").style.width = '0%';
+
+
+                window.setInterval(function(){
+
+                    if ((window.location.hash==="#7")){
+                        if(tenSecBis > 700) {
+                            if (index2 % 1000 == 0) {
+                                document.getElementById("titre94").style.visibility = 'hidden';
+                                document.getElementById("titre92").style.visibility = 'visible';
+                                document.getElementById("mig2").style.visibility = 'hidden';
+                                document.getElementById("mig0").style.visibility = 'visible';
+                            }
+                            else if (index2 % 1000 == 400) {
+                                document.getElementById("mig1").style.visibility = 'visible';
+                                document.getElementById("mig0").style.visibility = 'hidden';
+                                document.getElementById("titre92").style.visibility = 'hidden';
+                                document.getElementById("titre93").style.visibility = 'visible';
+                            }
+                            else if (index2 % 1000 == 600) {
+                                document.getElementById("mig2").style.visibility = 'visible';
+                                document.getElementById("mig1").style.visibility = 'hidden';
+                                document.getElementById("titre93").style.visibility = 'hidden';
+                                document.getElementById("titre94").style.visibility = 'visible';
+                            }
+                            else if (index2 % 1000 == 700) {
+                                document.getElementById("scroll_7").style.visibility = 'visible';
+                            }
+
+                            document.getElementById("progress7").style.width = String((index2 % 1000) / 10) + "%";
+                            index2++;
+                        }
+                        tenSecBis++;
+                    }
+                }, 10);
+            </script>
+        </div>
+
+        <div class="section" id="section5">
+           <h1>wanna make my day ? Make some money!</h1>
+        </div>
+
+
+        <div class="section" id="section6">
+            <img src="images/V2/Slide%207/top.png" style="position: absolute; width: 100%; top: 0; left: 0; z-index: -1;">
+            <img src="images/V2/Slide%207/bottom.png" style="position: absolute; width: 100%; bottom: 0; left: 0; z-index: -1;">
+           
+            <div class="graph">
+                <canvas id="canvas"></canvas>
+            </div>
+            <div class="legend">
+                <h3>*AAAA</h3>
+            </div>
+
+            <script>
+                    var color = Chart.helpers.color;
+                    var dataArray = {
+                        labels: ["February 2014", "March 2014", "April 2014", "May 2014", "June 2014",
+                            "July 2014", "August 2014", "September 2014", "October 2014", "November 2014", "December 2014",
+                            "January 2015", "February 2015", "March 2015", "April 2015", "May 2015", "June 2015",
+                            "July 2015", "August 2015", "September 2015", "October 2015", "November 2015", "December 2015",
+                            "January 2016", "February 2016", "March 2016", "April 2016", "May 2016", "June 2016",
+                            "July 2016", "August 2016", "September 2016", "October 2016", "November 2016", "December 2016",
+                            "January 2017", "February 2017", "March 2017", "April 2017", "May 2017", "June 2017",
+                            "July 2017", "August 2017", "September 2017", "October 2017", "November 2017"],
+                        datasets: [
+                            {
+                                label: 'Central route',
+                                backgroundColor: color(window.chartColors.black).alpha(0).rgbString(),
+                                borderColor: window.chartColors.red,
+                                borderWidth: 1,
+                                data: [9, 1, 50, 329, 314, 764, 616, 813, 118, 18, 58,
+                                    67, 336, 53, 1208, 95, 5, 206, 652, 76, 163, 8, 8,
+                                    90, 7, 258, 611, 1130, 388, 208, 40, 53, 431, 703, 374,
+                                    225, 217, 290, 279, 611, 537, 68, 143, 102, 160, 118]
+                            },
+                            {
+                                label: 'Easter and Western route',
+                                backgroundColor: color(window.chartColors.black).alpha(0).rgbString(),
+                                borderColor: window.chartColors.red,
+                                borderWidth: 1,
+                                data: [15, 9, 0, 0, 4, 25, 0, 0, 8, 4, 41, 15, 9, 8, 14,
+                                    1, 28, 24, 47, 193, 258, 99, 209, 280, 48, 66, 19,
+                                    48, 1, 18, 22, 27, 6, 15, 12, 29, 14, 18, 33,
+                                    2, 10, 64, 8, 6, 8, 17]
+                            }]
+
+                    };
+                    var barChartData = {
+                        labels: ["Jan 2014", "Feb 2014", "Mar 2014", "Apr 2014", "May 2014", "Jun 2014",
+                            "Jul 2014", "Aug 2014", "Sep 2014", "Oct 2014", "Nov 2014", "Dec 2014",
+                            "Jan 2015", "Feb 2015", "Mar 2015", "Apr 2015", "May 2015", "Jun 2015",
+                            "Jul 2015", "Aug 2015", "Sep 2015", "Oct 2015", "Nov 2015", "Dec 2015",
+                            "Jan 2016", "Feb 2016", "Mar 2016", "Apr 2016", "May 2016", "Jun 2016",
+                            "Jul 2016", "Aug 2016", "Sep 2016", "Oct 2016", "Nov 2016", "Dec 2016",
+                            "Jan 2017", "Feb 2017", "Mar 2017", "Apr 2017", "May 2017", "Jun 2017",
+                            "Jul 2017", "Aug 2017", "Sep 2017", "Oct 2017", "Nov 2017"],
+                        datasets: [{label: 'Central route',
+                            backgroundColor: color("#ffffff").alpha(0).rgbString(),
+                            borderColor: color("#c50021").alpha(1).rgbString(),
+                            borderWidth: 2,
+                            data: [0] }, {
+                            label: 'Eastern and Western* routes',
+                            backgroundColor: color("#ffffff").alpha(0).rgbString(),
+                            borderColor: color("#969696").alpha(1).rgbString(),
+                            borderWidth: 2,
+                            data: [12]}
+
+                        ]
+
+                    };
+
+                    window.onload = function() {
+                        var ctx = document.getElementById("canvas").getContext("2d");
+                        window.myBar = new Chart(ctx, {
+                            type: 'line',
+                            data: barChartData,
+                            options: {
+                                responsive: true,
+                                legend: {
+                                    display: true,
+                                    position: 'bottom'
+                                },
+                                gridLines: {
+                                    display: false,
+                                    drawBorder: false,
+                                    drawOnChartArea: false,
+                                    drawTicks: false,
+                                },
+                                title: {
+                                    display: false,
+                                    text: 'Migrants'
+                                },
+                                tooltips: {
+                                    mode: 'index',
+                                    intersect: true
+                                },
+                                scales: {
+                                    xAxes: [{
+                                        display: true,
+                                        scaleLabel: {
+                                            display: false,
+                                            labelString: 'Date'
+                                        }
+                                    }],
+                                    yAxes: [{
+                                        display: true,
+                                        position: 'right',
+                                        scaleLabel: {
+                                            display: true,
+                                            labelString: 'Number of dead and missing'
+                                        }
+                                    }]
+                                }
+                            }
+                        });
+                    };
+
+                    var graph = window.setInterval(function(){
+                        if ((dataArray.datasets[0].data.length>0) & (window.location.hash==="#6") ){
+                            barChartData.datasets[0].data.push(dataArray.datasets[0].data.shift());
+                            barChartData.datasets[1].data.push(dataArray.datasets[1].data.shift());
+                            //barChartData.datasets[2].data.push(dataArray.datasets[2].data.shift());
+                            window.myBar.update();
+                        }
+                        else if(!(dataArray.datasets[0].data.length>0)){
+                            clearInterval(graph);
+                        }
+                    }, 100);
+                </script>
+        </div>
+
+        
+
+        <div class="section" id="section8">
+            <img src="images/V2/Slide%209%20/9_callA.png" class="image">
+            <div class="left_grey"></div>
+            <div class="left">
+                <h1>Text</h1>
+                
+            </div>
+            <div class="right">
+                <h1>Text</h1>
+                <h2>Text2</h2>
+            
+                <div class="legend">
+                    <h3></h3>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="section" id="section9">
+            <img src="images/V2/Slide%2010/10_background.png" class="background">
+
+            <div style="position: absolute; top: 0%">
+                <h1>Text</h1>
+               
+            </div>
+
+            <div style="width: 50%; height: 50%; bottom: 0%; left: 0; position: absolute;">
+               
+            </div>
+
+            <div style="width: 50%;height: 50%;left:50%; bottom: 0%; position: absolute;">
+               
+            </div>
+
+        </div>
+
+
+        <div class="section" id="section11">
+            <img src="images/V2/Slide%2012/12_background.png" class="image">
+
+            <div class="left">
+                <h1> HAIA</h1>
+                <h2>LOREM</h2>
+                <h3>LOREM
+                    <br>
+                    <br>
+                    <br>
+                  LOREM 
+                </h3>
+
+            </div>
+            <div class="right">
+                <h2>Lorem
+                    </h2>
+
+                <h2 style="text-align: right;font-size: 1em;">IOM Director General William Lacy Swing</h2>
+
+
+                <h1>Our story</h1>
+                <h3>We are a team of students at Télécom ParisTech working on a project for our Data
+                    Visualization class.
+                    <br>
+                    <br>
+                    Yassine Rachidi, Joséphine de Leusse, Marion Duhirel, Antoine Denis
+                    <br>
+                    November 2018
+                </h3>
+            </div>
+
+
+        </div>
+
+    </div>
+    </body>
+</html>
