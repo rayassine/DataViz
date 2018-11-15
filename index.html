@@ -11,6 +11,7 @@
         <link rel="icon" href="images/V2/icon/weed.ico" />
         <script src="js/Chart.bundle.js"></script>
         <script src="js/utils.js"></script>
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
         <script type="text/javascript" src="js/scrolloverflow.js"></script>
@@ -20,6 +21,7 @@
         <link rel="stylesheet" href="css/ammap.css" type="text/css">
         <script src="js/ammap2.js" type="text/javascript"></script>
         <script src="js/worldLow.js" type="text/javascript"></script>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css"/>
         <link rel="stylesheet" type="text/css" href="css/examples.css"/>
         <link href="https://fonts.googleapis.com/css?family=Roboto:700" rel="stylesheet">
@@ -46,7 +48,7 @@
 
                 });
             });
-            </script>
+           </script>
 
         <!-- Style de la page (CSS) -->
         <style>
@@ -59,6 +61,7 @@
                 margin: 5%;
                 padding-top: 20%;
                 text-align: left;
+                bottom:20px;
             }
             /* Sous-Titre */
             h2{
@@ -73,8 +76,20 @@
                 font-family: 'Spectral', serif;
                 color: #525252;
                 margin: 5%;
+                position:relative;
                 text-align: justify;
-
+               	top:20px;	
+            }
+            h4 
+            {
+            	font-size: 1em;
+                font-family: 'Spectral', serif;
+                color: #525252;
+                margin: 5%;
+                position:relative;
+                text-align: justify;
+               	top:20px;
+               	text-indent: 15px;	
             }
 
 
@@ -101,6 +116,31 @@
                 z-index: -2;
                 background-color: #dddddd;
             }
+            .disclaimer {
+            	text-align: center;
+            }
+            .viztitle 
+            {
+            	font-size: 1,5em;
+                font-family: 'Roboto', sans-serif;
+                color: #000000;
+            	position: relative;
+            	text-align: center;
+            	top: 5%;
+            	text-transform: uppercase;
+            }
+
+            .vizsubtitle 
+            {
+            	font-size: 1,2em;
+                font-family: 'Roboto', sans-serif;
+                color: #888888;
+            	position: relative;
+            	text-align: center;
+            	top: 10%;
+            	text-transform: uppercase;
+            }
+
             .right {
                 position: absolute;
                 height: 100%;
@@ -112,7 +152,7 @@
             .scroll {
                 position: absolute;
                 width: 10%;
-                left: 18.25%;
+                left: 68.25%;
                 bottom: 0%;
                 z-index: 99;
             }
@@ -125,9 +165,10 @@
             }
             .scroll_txt {
                 position: relative;
-                right: 26.5%;
-                top: 80%;
+                right: -23.5%;
+                top: 79%;
                 z-index: 10;
+                color:black;
             }
             .background {
                 position: absolute;
@@ -145,6 +186,12 @@
             }
 
             /* Mise en forme specifique a chaque slide */
+            #section0 h1 
+            {
+            	position: relative;
+            	left:217px;
+            	top:270px;
+            }
             #section0 .left{
                 position: absolute;
                 height: 100%;
@@ -161,11 +208,8 @@
                 left: 0%;
                 z-index: 99;
             }
-            #section0 .right h1{
-                position: relative;
-                text-align: right;
-                padding-right: 5%;
-                top: 45%;
+            #section1 h1{
+                font-size: 1,2em
             }
 
             #section0 .right h2{
@@ -234,6 +278,7 @@
                 position: relative;
                 height: 40%;
             }
+
             #section2 #slide4 img {
                 position: relative;
                 width: 50%;
@@ -244,12 +289,21 @@
                 text-align: center;
             }
 
-            #section3 .image {
+            #section3 .image1 {
                 position:relative;
                 width: 35%;
-                top:25%;
+                top:20%;
               
             }
+
+            #section3 .image2 {
+                position:relative;
+                width: 40%;
+                top:20%;
+                left:10%;
+              
+            }
+
             #section3 h1 {
                 position: absolute;
                 text-align: center;
@@ -279,7 +333,7 @@
             }
             #section4 .image {
                 position: absolute;
-                bottom: 0;
+                bottom: 50px;
                 width: 100%;
                 left: 0;
                 z-index: 1;
@@ -301,6 +355,20 @@
                 left: 0;
                 z-index: 1;
             }
+
+            #section5 .graph {
+                position: relative;
+                left: 15%;
+                width: 70%;
+                margin-bottom: -2%;
+                bottom:15px;
+             }
+             #section5 .legend {
+                width: 100%;
+                position: absolute;
+                bottom: 100px;
+            }
+
             #section5 .left {
                 text-align: left;
             }
@@ -313,12 +381,7 @@
                 margin: 2%;
                 padding-top: 0%;
             }
-            #section6 .graph {
-                position: relative;
-                left: 15%;
-                width: 70%;
-                margin-bottom: -2%;
-            }
+          
             #section6 {
                 text-align: left;
             }
@@ -478,7 +541,7 @@
 
         <div class="section" id="section0">
             <a href="#1"><img id="scroll_1" src="images/V2/Slide%201/1_scroll.png" alt="family" class="scroll"></a>
-            <h2 class="scroll_txt">Scroll </h2>
+            <h2 class="scroll_txt"> Scroll </h2>
             <div class="left">
 
             </div>
@@ -488,7 +551,7 @@
             </div>
 
             <div class="right">
-                <h2>Exploration of the cannabis phenomenon in the context of several recent legalisations.
+                <h2> Should France legalize Cannabis?
                 </h2>
             </div>
             <img id="logo" src="images/V2/Slide%201/1_backgroundW.png" >
@@ -497,27 +560,29 @@
         <div class="section" id="section1">
 
            <div class="disclaimer" ; " data-anchor="Intro"> 
-            <h1>Disclaimer</h1>
-            <h3> Il découle une histoire millénaire de la consommation des drogues.
-Ayant traversé les âges, elle peut être considérée comme le marqueur d’une époque. Tantôt symbole de la contre-culture, elle est également devenue une arme de guerre jusqu’à être considérée comme un traitement thérapeutique. Si sa réputation néfaste lui colle à la peau, la société consomme, restreint, perçoit sa consommation de manière complexe. 
-C’est à la rencontre de ces contradictions, que nous souhaiterions étudier la consommation du cannabisnet étudier en particulier l’impact de la légalisation/décriminalisation. 
-Il découle une histoire millénaire de la consommation des drogues.
-Ayant traversé les âges, elle peut être considérée comme le marqueur d’une époque. Tantôt symbole de la contre-culture, elle est également devenue une arme de guerre jusqu’à être considérée comme un traitement thérapeutique. Si sa réputation néfaste lui colle à la peau, la société consomme, restreint, perçoit sa consommation de manière complexe. 
-C’est à la rencontre de ces contradictions, que nous souhaiterions étudier la consommation du cannabisnet étudier en particulier l’impact de la légalisation/décriminalisation. 
-             </h3>   
+            <h1 style='text-align: center'>
+            	Disclaimer
+            </h1>
+            <h3> A century long story comes from drugs consumption. It could be considered as a history tag, a counter-culture symbol, even a war weapon and sometimes as a therapeutic treatment. If its bad boy reputation is well known, the society consumes, restrains and perceives its consumption in a complex way.
+Between health risks and money potentially earned by a regulated market, the states nowadays have to think about its legalization.
+As Canada did recently, does France have to rethink the legal status of marijuana?
+			 </h3>   
+			 <img id="politician" src="images/disclaimer_image.png" style='width:400px;text-align: center;'>
             </div>
         </div>
         <div class="section" id="section2">
-            <h1> Cannabis legal status around the world </h1>
-            
-            
+            <div class="viztitle"> Cannabis legal status around the world </div>
+            <script type='text/javascript' src='https://eu-west-1a.online.tableau.com/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 980px; height: 579px;top:80px;left:145px;'><object class='tableauViz' width='980' height='579' style='display:none;'><param name='host_url' value='https%3A%2F%2Feu-west-1a.online.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='&#47;t&#47;yass' /><param name='name' value='histoireaaz&#47;Histoire1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='showAppBanner' value='false' /><param name='filter' value='iframeSizedToWindow=true' /></object></div>
         </div>
 
         <div class="section" id="section3">
-            <h1> Inspired by american way of life </h1>
-            <img src="images/number_smoker_usa.png" class="image">
-            
+            <div class="viztitle"> Inspired by american way of life </div>
 
+			<h4>    We’ll start our data journey in the United States, first power of in the world. According to the latest surveys, 10 % of the US citizens consider themselves as active marijuana consumers. As a meaningful comparison, 10% of the US population (30M) represents the entire Canadian population, which recently passed a new law to legalize the recreative use of marijuana.
+			</h4>
+
+    		<img src="images/number_smoker_usa.png" class="image1">  
+    		<img src="images/pct_canada.png" class="image2">  
         </div>
 
         <div class="section" id="section4">
@@ -525,24 +590,27 @@ C’est à la rencontre de ces contradictions, que nous souhaiterions étudier l
             <div class="left_grey"></div>
             <div class="left">
                 <h1> Who are the smokers ? </h1>
-                <h2> Smoker isn’t a gender matter </h2>
+                <h4> In terms of sociology of marijuana consumption, we first wanted to determine the standard profil of a user. We tried to identify tendencies based on your gender, ethnic origins or even work status. However, our data driven analysis didn’t lead us to a clear identification. 
+				<br> We notice that men consume slightly more than women but the difference is not strong enough to make it a generalization. Finally, the cultural analysis only proves that the marijuana use is a global concern and is not impacted by your ethnic origins.
+ 				</h4>
                 <img src="images/V2/Slide%208/8_missing.png" class="image">
             </div>
             <div class="right">
-                <h1>AA</h1>
-
+                
                 <div id="titre92" class="titre7">
-                    <h2>AAAAA.</h2>
+                    <h2>Smoking is not gender matter...</h2>
                 </div>
                 <div id="titre93" class="titre7">
-                    <h2>AAAAAAA</h2>
+                    <h2>neither an ethnic phenomenon...</h2>
                 </div>
                 <div id="titre94" class="titre7">
-                    <h2>aAAAAAAAAAA</h2>
+                    <h2>but a generational gap </h2>
                 </div>
-                <img src="images/V2/Slide%208/mig0.png" id="mig0" alt="mig0" class="image">
-                <img src="images/V2/Slide%208/mig1.png" id="mig1" alt="mig1" class="image">
-                <img src="images/V2/Slide%208/mig2.png" id="mig2" alt="mig2" class="image">
+                <img src="images/gender_smoke.png" id="mig0" alt="mig0" class="image">
+                <img src="images/ethnic_smoke.png" id="mig1" alt="mig1" class="image">
+                <img src="images/hist_age.png" id="mig2" alt="mig2" class="image" >
+                	
+                </style>>
                 <div id="progress7" class="progressBar"></div>
             </div>
             <script>
@@ -558,31 +626,31 @@ C’est à la rencontre de ces contradictions, que nous souhaiterions étudier l
 
                 window.setInterval(function(){
 
-                    if ((window.location.hash==="#7")){
+                    if ((window.location.hash==="#4")){
                         if(tenSecBis > 700) {
-                            if (index2 % 1000 == 0) {
+                            if (index2 % 4000 == 0) {
                                 document.getElementById("titre94").style.visibility = 'hidden';
                                 document.getElementById("titre92").style.visibility = 'visible';
                                 document.getElementById("mig2").style.visibility = 'hidden';
                                 document.getElementById("mig0").style.visibility = 'visible';
                             }
-                            else if (index2 % 1000 == 400) {
+                            else if (index2 % 4000 == 1600) {
                                 document.getElementById("mig1").style.visibility = 'visible';
                                 document.getElementById("mig0").style.visibility = 'hidden';
                                 document.getElementById("titre92").style.visibility = 'hidden';
                                 document.getElementById("titre93").style.visibility = 'visible';
                             }
-                            else if (index2 % 1000 == 600) {
+                            else if (index2 % 4000 == 2400) {
                                 document.getElementById("mig2").style.visibility = 'visible';
                                 document.getElementById("mig1").style.visibility = 'hidden';
                                 document.getElementById("titre93").style.visibility = 'hidden';
                                 document.getElementById("titre94").style.visibility = 'visible';
                             }
-                            else if (index2 % 1000 == 700) {
+                            else if (index2 % 4000 == 2800) {
                                 document.getElementById("scroll_7").style.visibility = 'visible';
                             }
 
-                            document.getElementById("progress7").style.width = String((index2 % 1000) / 10) + "%";
+                            document.getElementById("progress7").style.width = String((index2 % 4000) / 40) + "%";
                             index2++;
                         }
                         tenSecBis++;
@@ -592,19 +660,18 @@ C’est à la rencontre de ces contradictions, que nous souhaiterions étudier l
         </div>
 
         <div class="section" id="section5">
-           <h1>wanna make my day ? Make some money!</h1>
-        </div>
+           <div class='viztitle'> Economical impact </div>
+           <h4>    If marijuana is considered as harmful and responsible for illegal traffic in many countries, its regulation has proven to bring wealth and employment in states that have legalized it.
+			Our example comes here from Denver, Colorado, where 18,000 jobs have been created statewide in 2015 thanks to the marijuana legalization (directly and indirectly created as well as induced).
+			Compared to other “legal drugs” such as cigarettes and alcohol, Marijuana is still a bit behind in 2015, but is expected to be the first expense among the three in 2020 ($150 millions)
+		As for the revenue for the state, we see that taxes (retail,sales taxes and fees) are bringing around 250 millions of dollars a year, representing a little more than 2% of the total general fund revenue of the state in 2018
 
-
-        <div class="section" id="section6">
-            <img src="images/V2/Slide%207/top.png" style="position: absolute; width: 100%; top: 0; left: 0; z-index: -1;">
-            <img src="images/V2/Slide%207/bottom.png" style="position: absolute; width: 100%; bottom: 0; left: 0; z-index: -1;">
-           
+			</h4>
             <div class="graph">
                 <canvas id="canvas"></canvas>
             </div>
             <div class="legend">
-                <h3>*AAAA</h3>
+                <h3></h3>
             </div>
 
             <script>
@@ -617,49 +684,41 @@ C’est à la rencontre de ces contradictions, que nous souhaiterions étudier l
                             "January 2016", "February 2016", "March 2016", "April 2016", "May 2016", "June 2016",
                             "July 2016", "August 2016", "September 2016", "October 2016", "November 2016", "December 2016",
                             "January 2017", "February 2017", "March 2017", "April 2017", "May 2017", "June 2017",
-                            "July 2017", "August 2017", "September 2017", "October 2017", "November 2017"],
+                            "July 2017", "August 2017", "September 2017", "October 2017", "November 2017","December 2017","January 2018", "February 2018", "March 2018", "April 2018", "May 2018", "June 2018",
+                            "July 2018", "August 2018", "September 2018"],
                         datasets: [
                             {
-                                label: 'Central route',
+                                label: 'Total tax and fees',
                                 backgroundColor: color(window.chartColors.black).alpha(0).rgbString(),
                                 borderColor: window.chartColors.red,
                                 borderWidth: 1,
-                                data: [9, 1, 50, 329, 314, 764, 616, 813, 118, 18, 58,
-                                    67, 336, 53, 1208, 95, 5, 206, 652, 76, 163, 8, 8,
-                                    90, 7, 258, 611, 1130, 388, 208, 40, 53, 431, 703, 374,
-                                    225, 217, 290, 279, 611, 537, 68, 143, 102, 160, 118]
-                            },
-                            {
-                                label: 'Easter and Western route',
-                                backgroundColor: color(window.chartColors.black).alpha(0).rgbString(),
-                                borderColor: window.chartColors.red,
-                                borderWidth: 1,
-                                data: [15, 9, 0, 0, 4, 25, 0, 0, 8, 4, 41, 15, 9, 8, 14,
-                                    1, 28, 24, 47, 193, 258, 99, 209, 280, 48, 66, 19,
-                                    48, 1, 18, 22, 27, 6, 15, 12, 29, 14, 18, 33,
-                                    2, 10, 64, 8, 6, 8, 17]
-                            }]
+                                yAxisID: 'R',
+                                data: [3.519756, 4.092575, 4.980992,5.273355,5.715707,6.522085,7.407450,7.741167,7.232870,7.642800,7.465568,8.558141,8.802295,9.099395,9.979643,10.617311,11.326452,10.856584,12.811437,13.181758,11.656736,11.290012,12.231410,13.247434,12.466617,14.195923,13.097298,17.183162,14.482648,16.823849,17.574149,19.145992,19.266922,18.425864,17.694953,18.164787,17.723858,17.550692,22.867587,18.563939,19.662464,20.437751,23.775043,23.235507,23.098408,21.076993,21.211445,21.681438,21.134864,20.871820,22.947141,22.367707,21.928692,22.963778,23.044818,23.770397]
+                            }
+                            ]
 
                     };
                     var barChartData = {
-                        labels: ["Jan 2014", "Feb 2014", "Mar 2014", "Apr 2014", "May 2014", "Jun 2014",
+                        labels: ["Feb 2014", "Mar 2014", "Apr 2014", "May 2014", "Jun 2014",
                             "Jul 2014", "Aug 2014", "Sep 2014", "Oct 2014", "Nov 2014", "Dec 2014",
                             "Jan 2015", "Feb 2015", "Mar 2015", "Apr 2015", "May 2015", "Jun 2015",
                             "Jul 2015", "Aug 2015", "Sep 2015", "Oct 2015", "Nov 2015", "Dec 2015",
                             "Jan 2016", "Feb 2016", "Mar 2016", "Apr 2016", "May 2016", "Jun 2016",
                             "Jul 2016", "Aug 2016", "Sep 2016", "Oct 2016", "Nov 2016", "Dec 2016",
                             "Jan 2017", "Feb 2017", "Mar 2017", "Apr 2017", "May 2017", "Jun 2017",
-                            "Jul 2017", "Aug 2017", "Sep 2017", "Oct 2017", "Nov 2017"],
-                        datasets: [{label: 'Central route',
+                            "Jul 2017", "Aug 2017", "Sep 2017", "Oct 2017", "Nov 2017","Dec 2017" ,
+                            "Jan 2018", "Feb 2018", "Mar 2018", "Apr 2018", "May 2018", "Jun 2018",
+                            "Jul 2018", "Aug 2018", "Sep 2018" ],
+                        datasets: [{label: 'Total tax and fees',
                             backgroundColor: color("#ffffff").alpha(0).rgbString(),
                             borderColor: color("#c50021").alpha(1).rgbString(),
                             borderWidth: 2,
-                            data: [0] }, {
-                            label: 'Eastern and Western* routes',
-                            backgroundColor: color("#ffffff").alpha(0).rgbString(),
-                            borderColor: color("#969696").alpha(1).rgbString(),
-                            borderWidth: 2,
-                            data: [12]}
+                            data: [0] 
+                         }
+                            
+
+                     
+                     
 
                         ]
 
@@ -684,7 +743,7 @@ C’est à la rencontre de ces contradictions, que nous souhaiterions étudier l
                                 },
                                 title: {
                                     display: false,
-                                    text: 'Migrants'
+                                    text: '$'
                                 },
                                 tooltips: {
                                     mode: 'index',
@@ -699,22 +758,26 @@ C’est à la rencontre de ces contradictions, que nous souhaiterions étudier l
                                         }
                                     }],
                                     yAxes: [{
+                                    	id: 'R',
                                         display: true,
                                         position: 'right',
                                         scaleLabel: {
                                             display: true,
-                                            labelString: 'Number of dead and missing'
+                                            labelString: 'Revenue in millions $'
+                                        	}
                                         }
-                                    }]
+                                        
+                                        
+                                    ]
                                 }
                             }
                         });
                     };
 
                     var graph = window.setInterval(function(){
-                        if ((dataArray.datasets[0].data.length>0) & (window.location.hash==="#6") ){
+                        if ((dataArray.datasets[0].data.length>0) & (window.location.hash==="#5") ){
                             barChartData.datasets[0].data.push(dataArray.datasets[0].data.shift());
-                            barChartData.datasets[1].data.push(dataArray.datasets[1].data.shift());
+
                             //barChartData.datasets[2].data.push(dataArray.datasets[2].data.shift());
                             window.myBar.update();
                         }
@@ -723,66 +786,142 @@ C’est à la rencontre de ces contradictions, que nous souhaiterions étudier l
                         }
                     }, 100);
                 </script>
+           
+        </div>
+
+
+        <div class="section" id="section6">
+          		<div class="viztitle"> Is France missing an opportunity ? </div>
+          		<h4> In the light of concrete cases, taking into account the french population’s opinion on marijuana and putting in perspective with other addictive substances that are legal, it is today fair to wonder if there is still a good reason to keep marijuana illegal in France. </h4>
+
+          		<img src="images/fra_can.png" class="image" style="width:40%; position: relative; left:30%;">
         </div>
 
         
 
-        <div class="section" id="section8">
-            <img src="images/V2/Slide%209%20/9_callA.png" class="image">
-            <div class="left_grey"></div>
-            <div class="left">
-                <h1>Text</h1>
-                
-            </div>
-            <div class="right">
-                <h1>Text</h1>
-                <h2>Text2</h2>
-            
-                <div class="legend">
-                    <h3></h3>
-                </div>
-            </div>
+        <div class="section" id="section7">
+            <div class='viztitle'> Zoom on France </div>
+            <div class="vizsubtitle">  - Criminality - </div>
+            <h4> France, considering its geographical position at the heart of the Western Europe, is a zone of transit for many illicit substances produced in the world. Cannabis is one of those substances but it counts for 90% of the drug related criminal cases. Let's take a look at the statistics !  </h4>
+	        
+        	 <div id="crime_france" style="position: relative; width: 600px; height: 300px; display: inline-block; vertical-align: middle ">
+        	 	
+        	 	<script>
+        	 		trace1 = {
+              type: 'scatter',
+              x: [1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, ],
+                  y: [20049,27092,30646,28955,32200,38712,41037,46946,51324,57275,62804,64966,64751,78426,83326,84297,127555,97366,120462,119329,117421],
+                  mode: 'lines',
+                  name: 'Red',
+                  line: {
+                  color: '#7ABA71',
+                  width: 2
+                  }
+              };
+
+            var data = [trace1];
+            var layout = {
+              title: 'Evolution of the number of crime related to cannabis trafficking in France',
+              xaxis: {
+                title: 'Year'
+              },
+              yaxis: {
+                title: 'Number of arrest'
+              },
+              };
+              Plotly.newPlot('crime_france', data, layout, {displayModeBar: false});
+        	 	</script>
+        	 </div>
+		<div id="crime_reasons" style="position: relative; width: 600px; height: 300px; display: inline-block; vertical-align: middle;right:0px">		  
+
+			<script> var data = [{
+				  values: [1115565,112835,71286,19540,15406,60307],
+				  labels: ['Simple User', 'Use and resell', 'Local Trafficking','International Trafficking ','Other Infractions','Indirect'],
+				  hole: .4,
+				  type: 'pie',
+				  marker: {
+					  colors : ['#7ABA71', '#228B22', '#008000','ADFF2F','006400']  
+				  },
+				  textfont: {color: '#FFFFFF'}
+				}];
+
+				var layout = {
+				   title: 'Various reasons of arrest',
+
+				  height: 400,
+				  width: 500
+				};
+
+				Plotly.newPlot('crime_reasons', data, layout, {displayModeBar: false});
+		</script>
 
         </div>
+    </div>
 
-        <div class="section" id="section9">
-            <img src="images/V2/Slide%2010/10_background.png" class="background">
+    <div class="section" id="section8">
+			<div class='viztitle'> Zoom on France </div>
+            <div class="vizsubtitle">  - Public Health - </div>
+            <h4> Cannabis is the 8th most dangerous drug. This ranking take into account 16 parameters including: direct effects on user, overdose risk, physical and psychological dependancy, alteration of mental capacities but also the economic cost for a country and the international smuggling consequences. This outputs two scores: one for the harm the drug can inflict to the user but also to others <h4>
+            <div id="danger_drug" style="position: relative; width: 600px; height: 300px; display: inline-block; vertical-align: middle; left:25%;">
+            	<script >
+					 var trace1 = {
+					  x: ['Alcohol', 'Heroin', 'Crack ','Metamphetamine','Cocaine','Tobacco','Amphetamine','Cannabis'],
+					  y: [46, 22, 18,2,7,9,4,9],
+					  name: 'Harm to Users',
+					  marker: {color:'#7ABA71'},
+					  type: 'bar'
+					};
 
-            <div style="position: absolute; top: 0%">
-                <h1>Text</h1>
-               
+					var trace2 = {
+					  x: ['Alcohol', 'Heroin', 'Crack ','Metamphetamine','Cocaine','Tobacco','Amphetamine','Cannabis'],
+					  y: [26, 33, 36,31,20,17,22,11],
+					  name: 'Harm to others',
+					  marker: {color:'#228B22'},
+					  type: 'bar'
+					};
+
+					var data = [trace1, trace2];
+
+					var layout = { title: "Drugs classification by harm",
+						yaxis: { title: "Overall harm score" } ,
+              
+						barmode: 'stack'
+					};
+
+					Plotly.newPlot('danger_drug', data, layout);
+                </script>
             </div>
+   </div>
 
-            <div style="width: 50%; height: 50%; bottom: 0%; left: 0; position: absolute;">
-               
-            </div>
+   <div class="section" id="section9">
+			<div class='viztitle'> Zoom on France </div>
+            <div class="vizsubtitle">  - Public Opinions - </div>
 
-            <div style="width: 50%;height: 50%;left:50%; bottom: 0%; position: absolute;">
-               
-            </div>
+            <h4> The look of the French people on the cannabis changed. According to a poll, the French people would show themselves more and more favorable to an authorization of the cannabis, on the express condition that it is strictly regulated by the State.</h4>
+			<img src="weed.ico", style='width: 150px; position:relative;left: -25%'>
+			<img src="recreat.png", style='width: 150px; position:relative;left:0%'>	
+			<img src="cultivation.png", style='width: 150px; position:relative;left:25%'>	
+			<h4 style='position: absolute;left:25px;top:310px;'> Recreational Use </h4> <h4 style='position: absolute;left:499px;top:310px'> Medicinal Use </h4> <h4 style='position: absolute;left:980px;top:310px'> Cultivation </h4> 
 
-        </div>
+			<h4 style='position: absolute;left:70px;top:330px;'> 51%  </h4> <h4 style='position: absolute;left:535px;top:330px'> 61% </h4> <h4 style='position: absolute;left:1010px;top:330px'> 46% </h4> 
+			</style>
+
+   </div>
 
 
         <div class="section" id="section11">
-            <img src="images/V2/Slide%2012/12_background.png" class="image">
 
             <div class="left">
-                <h1> HAIA</h1>
-                <h2>LOREM</h2>
-                <h3>LOREM
-                    <br>
-                    <br>
-                    <br>
-                  LOREM 
+                <h1> What to do now ? </h1>
+                <h2> You have all the tools in your hand. 
+                </h2>
+                <h3>
+                	We can’t deny what cannabis consumption economically represents in France. It could be a game-changer to inject this money in our official economy. Plus, put the cannabis consumption under state’s control could be beneficial to limit health risks.
                 </h3>
 
             </div>
             <div class="right">
-                <h2>Lorem
-                    </h2>
-
-                <h2 style="text-align: right;font-size: 1em;">IOM Director General William Lacy Swing</h2>
+                
 
 
                 <h1>Our story</h1>
@@ -800,5 +939,7 @@ C’est à la rencontre de ces contradictions, que nous souhaiterions étudier l
         </div>
 
     </div>
+
+    <script src="crime_france.js"></script>
     </body>
 </html>
