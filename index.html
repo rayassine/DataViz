@@ -597,8 +597,13 @@ As Canada did recently, does France have to rethink the legal status of marijuan
         </div>
 
         <div class="section" id="section2">
-            <div class="viztitle"> Cannabis legal status around the world </div>
-            <script type='text/javascript' src='https://eu-west-1a.online.tableau.com/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 980px; height: 579px;top:80px;left:145px;'><object class='tableauViz' width='980' height='579' style='display:none;'><param name='host_url' value='https%3A%2F%2Feu-west-1a.online.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='&#47;t&#47;yass' /><param name='name' value='histoireaaz&#47;Histoire1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='showAppBanner' value='false' /><param name='filter' value='iframeSizedToWindow=true' /></object></div>
+           <div class="viztitle"> Cannabis legal status around the world </div>
+           <h4> Nowadays, the recreational use remains marginal in the whole world. Plus if we can see some authorization in few countries or particular cases according regions, regulations are very strict. 
+			Legal : consumption is supervised by States. Legalization could be total or partial : we will see different rules on recreational rules, culture and selling
+Illegal : not allowed by governement with a criminal sanction if any breach.
+NC : no information known </h4>
+
+           <div class='tableauPlaceholder' id='viz1543932534395' style='position: relative; bot:50%; left:22%;'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Le&#47;LegalstatusofcannabisintheWorldv3&#47;Histoire1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='LegalstatusofcannabisintheWorldv3&#47;Histoire1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Le&#47;LegalstatusofcannabisintheWorldv3&#47;Histoire1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1543932534395');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='700px';vizElement.style.height='547px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
         </div>
 
         <div class="section" id="section3">
@@ -635,13 +640,12 @@ As Canada did recently, does France have to rethink the legal status of marijuan
                 <img src="images/gender_smoke.png" id="mig0" alt="mig0" class="image">
                 <img src="images/ethnic_smoke.png" id="mig1" alt="mig1" class="image">
                 <img src="images/hist_age.png" id="mig2" alt="mig2" class="image" >
-                	
-                </style>
+                
+				<input style='position:absolute;top:90%;left:15%;width: 20em'type="button" value="Next" onclick="swap();"/>
                 <div id="progress7" class="progressBar"></div>
             </div>
             <script>
                 var index2 = 0;
-                var tenSecBis = 0;
                 document.getElementById("mig1").style.visibility = 'hidden';
                 document.getElementById("mig2").style.visibility = 'hidden';
                 document.getElementById("titre93").style.visibility = 'hidden';
@@ -649,39 +653,33 @@ As Canada did recently, does France have to rethink the legal status of marijuan
                 document.getElementById("scroll_7").style.visibility = 'hidden';
                 document.getElementById("progress7").style.width = '0%';
 
-
-                window.setInterval(function(){
-
-                    if ((window.location.hash==="#4")){
-                        if(tenSecBis > 700) {
-                            if (index2 % 4000 == 0) {
-                                document.getElementById("titre94").style.visibility = 'hidden';
-                                document.getElementById("titre92").style.visibility = 'visible';
-                                document.getElementById("mig2").style.visibility = 'hidden';
-                                document.getElementById("mig0").style.visibility = 'visible';
-                            }
-                            else if (index2 % 4000 == 1600) {
-                                document.getElementById("mig1").style.visibility = 'visible';
-                                document.getElementById("mig0").style.visibility = 'hidden';
+                function swap(){
+                        if(index2==0) {
+                            
                                 document.getElementById("titre92").style.visibility = 'hidden';
                                 document.getElementById("titre93").style.visibility = 'visible';
+                                document.getElementById("mig0").style.visibility = 'hidden';
+                                document.getElementById("mig1").style.visibility = 'visible';
+                                index2=1;
                             }
-                            else if (index2 % 4000 == 2400) {
+                            else if (index2==1) {
                                 document.getElementById("mig2").style.visibility = 'visible';
                                 document.getElementById("mig1").style.visibility = 'hidden';
                                 document.getElementById("titre93").style.visibility = 'hidden';
                                 document.getElementById("titre94").style.visibility = 'visible';
+                                index2=2;
                             }
-                            else if (index2 % 4000 == 2800) {
-                                document.getElementById("scroll_7").style.visibility = 'visible';
+                            else if (index2=2) {
+                                document.getElementById("mig0").style.visibility = 'visible';
+                                document.getElementById("mig2").style.visibility = 'hidden';
+                                document.getElementById("titre94").style.visibility = 'hidden';
+                                document.getElementById("titre92").style.visibility = 'visible';
+                                index2=0;
                             }
+                        
+                };
+                
 
-                            document.getElementById("progress7").style.width = String((index2 % 4000) / 40) + "%";
-                            index2++;
-                        }
-                        tenSecBis++;
-                    }
-                }, 10);
             </script>
         </div>
 
@@ -818,7 +816,7 @@ As Canada did recently, does France have to rethink the legal status of marijuan
 
         <div class="section" id="section6">
           		<div class="viztitle"> Is France missing an opportunity ? </div>
-          		<h4> In the light of concrete cases, taking into account the french population’s opinion on marijuana and putting in perspective with other addictive substances that are legal, it is today fair to wonder if there is still a good reason to keep marijuana illegal in France. </h4>
+          		<h4> In the light of concrete cases, taking into account the french population’s opinion on marijuana and putting in perspective with other addictive substances that are legal, it is today fair to wonder if there is still a good reason to keep marijuana illegal in France. In France, cannabis consumption accounts for <font> 80% of all drug use </font> and involves <font> 3.9 million users </font>, including <font> 1.2 million regular users </font>. At the age of 16, the French are the <font>first cannabis users in Europe </font>  </h4>
 
           		<img src="images/fra_can.png" class="image" style="width:40%; position: relative; left:30%;">
         </div>
