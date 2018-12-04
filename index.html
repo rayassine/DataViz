@@ -53,6 +53,12 @@
         <!-- Style de la page (CSS) -->
         <style>
 
+        	font{
+        		font-size: 1.1em;
+    			color: #006400;
+    			font-weight: 800;
+        	}
+
             /* Titres */
             h1{
                 font-size: 2em;
@@ -103,7 +109,7 @@
                 position: absolute;
                 height: 100%;
                 top: 0;
-                width: 46.5%;
+                width: 30%;
                 left: 0;
                 z-index: 10;
             }
@@ -111,7 +117,7 @@
                 position: absolute;
                 height: 100%;
                 top: 0;
-                width: 46.5%;
+                width: 30%;
                 left: 0;
                 z-index: -2;
                 background-color: #dddddd;
@@ -137,7 +143,7 @@
                 color: #888888;
             	position: relative;
             	text-align: center;
-            	top: 10%;
+            	top: 8%;
             	text-transform: uppercase;
             }
 
@@ -333,13 +339,24 @@
             }
             #section4 .image {
                 position: absolute;
-                bottom: 50px;
+                width: 100%;
+                top:30%;
+                right:15%;                
+                z-index: 1;
+            }
+             #section4 .leftimage {
+                position: absolute;
+                bottom: 15%;
                 width: 100%;
                 left: 0;
                 z-index: 1;
             }
             #section4 .left {
                 text-align: left;
+            }
+
+            #section4 h2 {
+                position: absolute;
             }
 
             #section5 .left h1 {
@@ -521,6 +538,14 @@
             #section11 h3 {
                 text-align: justify;
             }
+            #section11 .left {
+                position: absolute;
+                height: 100%;
+                top: 0;
+                width: 47.5%;
+                left: 0;
+                z-index: 10;
+            }
 
         </style>
 
@@ -554,7 +579,7 @@
                 <h2> Should France legalize Cannabis?
                 </h2>
             </div>
-            <img id="logo" src="images/V2/Slide%201/1_backgroundW.png" >
+            <img id="logo" src="images/V2/Slide%201/1_backgroundW.png">
         </div>
 
         <div class="section" id="section1">
@@ -570,6 +595,7 @@ As Canada did recently, does France have to rethink the legal status of marijuan
 			 <img id="politician" src="images/disclaimer_image.png" style='width:400px;text-align: center;'>
             </div>
         </div>
+
         <div class="section" id="section2">
             <div class="viztitle"> Cannabis legal status around the world </div>
             <script type='text/javascript' src='https://eu-west-1a.online.tableau.com/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 980px; height: 579px;top:80px;left:145px;'><object class='tableauViz' width='980' height='579' style='display:none;'><param name='host_url' value='https%3A%2F%2Feu-west-1a.online.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='&#47;t&#47;yass' /><param name='name' value='histoireaaz&#47;Histoire1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='showAppBanner' value='false' /><param name='filter' value='iframeSizedToWindow=true' /></object></div>
@@ -578,22 +604,22 @@ As Canada did recently, does France have to rethink the legal status of marijuan
         <div class="section" id="section3">
             <div class="viztitle"> Inspired by american way of life </div>
 
-			<h4>    We’ll start our data journey in the United States, first power of in the world. According to the latest surveys, 10 % of the US citizens consider themselves as active marijuana consumers. As a meaningful comparison, 10% of the US population (30M) represents the entire Canadian population, which recently passed a new law to legalize the recreative use of marijuana.
+			<h4>    We’ll start our data journey in the United States, first power of in the world. According to the latest surveys, <font> 10 % of the US citizens </font> consider themselves as <font> active marijuana consumers </font>. As a meaningful comparison, 10% of the US population (30M) represents the entire Canadian population, which recently passed a new law to legalize the recreative use of marijuana.
 			</h4>
 
     		<img src="images/number_smoker_usa.png" class="image1">  
-    		<img src="images/pct_canada.png" class="image2">  
+    		<img src="images/francew.png" class="image2">  
         </div>
 
         <div class="section" id="section4">
-           <a href="#8"><img id="scroll_7" src="images/V2/Slide%201/1_scroll.png" alt="family" class="scroll_right"></a>
+           
             <div class="left_grey"></div>
             <div class="left">
                 <h1> Who are the smokers ? </h1>
                 <h4> In terms of sociology of marijuana consumption, we first wanted to determine the standard profil of a user. We tried to identify tendencies based on your gender, ethnic origins or even work status. However, our data driven analysis didn’t lead us to a clear identification. 
 				<br> We notice that men consume slightly more than women but the difference is not strong enough to make it a generalization. Finally, the cultural analysis only proves that the marijuana use is a global concern and is not impacted by your ethnic origins.
  				</h4>
-                <img src="images/V2/Slide%208/8_missing.png" class="image">
+                <img src="images/V2/Slide%208/8_missing.png" class="leftimage">
             </div>
             <div class="right">
                 
@@ -610,7 +636,7 @@ As Canada did recently, does France have to rethink the legal status of marijuan
                 <img src="images/ethnic_smoke.png" id="mig1" alt="mig1" class="image">
                 <img src="images/hist_age.png" id="mig2" alt="mig2" class="image" >
                 	
-                </style>>
+                </style>
                 <div id="progress7" class="progressBar"></div>
             </div>
             <script>
@@ -662,9 +688,9 @@ As Canada did recently, does France have to rethink the legal status of marijuan
         <div class="section" id="section5">
            <div class='viztitle'> Economical impact </div>
            <h4>    If marijuana is considered as harmful and responsible for illegal traffic in many countries, its regulation has proven to bring wealth and employment in states that have legalized it.
-			Our example comes here from Denver, Colorado, where 18,000 jobs have been created statewide in 2015 thanks to the marijuana legalization (directly and indirectly created as well as induced).
+			Our example comes here from Denver, Colorado, where <font> 18,000 jobs have been created </font> statewide <font> in 2015 </font> thanks to the marijuana legalization (directly and indirectly created as well as induced).
 			Compared to other “legal drugs” such as cigarettes and alcohol, Marijuana is still a bit behind in 2015, but is expected to be the first expense among the three in 2020 ($150 millions)
-		As for the revenue for the state, we see that taxes (retail,sales taxes and fees) are bringing around 250 millions of dollars a year, representing a little more than 2% of the total general fund revenue of the state in 2018
+		As for the revenue for the state, we see that <font>taxes (retail,sales taxes and fees) </font> are bringing around <font> 250 millions of dollars a year </font>, representing a little more than 2% of the total general fund revenue of the state in 2018
 
 			</h4>
             <div class="graph">
@@ -711,7 +737,7 @@ As Canada did recently, does France have to rethink the legal status of marijuan
                             "Jul 2018", "Aug 2018", "Sep 2018" ],
                         datasets: [{label: 'Total tax and fees',
                             backgroundColor: color("#ffffff").alpha(0).rgbString(),
-                            borderColor: color("#c50021").alpha(1).rgbString(),
+                            borderColor: color("#006400").alpha(1).rgbString(),
                             borderWidth: 2,
                             data: [0] 
                          }
@@ -802,7 +828,7 @@ As Canada did recently, does France have to rethink the legal status of marijuan
         <div class="section" id="section7">
             <div class='viztitle'> Zoom on France </div>
             <div class="vizsubtitle">  - Criminality - </div>
-            <h4> France, considering its geographical position at the heart of the Western Europe, is a zone of transit for many illicit substances produced in the world. Cannabis is one of those substances but it counts for 90% of the drug related criminal cases. Let's take a look at the statistics !  </h4>
+            <h4> France, considering its geographical position at the heart of the Western Europe, is a zone of transit for many illicit substances produced in the world. <font> Cannabis </font> is one of those substances but it counts for <font> 90% of the drug related criminal cases</font>. Let's take a look at the statistics !  </h4>
 	        
         	 <div id="crime_france" style="position: relative; width: 600px; height: 300px; display: inline-block; vertical-align: middle ">
         	 	
@@ -861,14 +887,14 @@ As Canada did recently, does France have to rethink the legal status of marijuan
     <div class="section" id="section8">
 			<div class='viztitle'> Zoom on France </div>
             <div class="vizsubtitle">  - Public Health - </div>
-            <h4> Cannabis is the 8th most dangerous drug. This ranking take into account 16 parameters including: direct effects on user, overdose risk, physical and psychological dependancy, alteration of mental capacities but also the economic cost for a country and the international smuggling consequences. This outputs two scores: one for the harm the drug can inflict to the user but also to others <h4>
+            <h4> <font> Cannabis </font> is the <font> 8th most dangerous drug </font>. This ranking take into account 16 parameters including: direct effects on user, overdose risk, physical and psychological dependancy, alteration of mental capacities but also the economic cost for a country and the international smuggling consequences. This outputs two scores: one for the harm the drug can inflict to the user but also to others <h4>
             <div id="danger_drug" style="position: relative; width: 600px; height: 300px; display: inline-block; vertical-align: middle; left:25%;">
             	<script >
 					 var trace1 = {
 					  x: ['Alcohol', 'Heroin', 'Crack ','Metamphetamine','Cocaine','Tobacco','Amphetamine','Cannabis'],
 					  y: [46, 22, 18,2,7,9,4,9],
 					  name: 'Harm to Users',
-					  marker: {color:'#7ABA71'},
+					  marker: {color:'#850606'},
 					  type: 'bar'
 					};
 
@@ -876,7 +902,7 @@ As Canada did recently, does France have to rethink the legal status of marijuan
 					  x: ['Alcohol', 'Heroin', 'Crack ','Metamphetamine','Cocaine','Tobacco','Amphetamine','Cannabis'],
 					  y: [26, 33, 36,31,20,17,22,11],
 					  name: 'Harm to others',
-					  marker: {color:'#228B22'},
+					  marker: {color:'#DC143C'},
 					  type: 'bar'
 					};
 
@@ -901,9 +927,9 @@ As Canada did recently, does France have to rethink the legal status of marijuan
 			<img src="weed.ico", style='width: 150px; position:relative;left: -25%'>
 			<img src="recreat.png", style='width: 150px; position:relative;left:0%'>	
 			<img src="cultivation.png", style='width: 150px; position:relative;left:25%'>	
-			<h4 style='position: absolute;left:25px;top:310px;'> Recreational Use </h4> <h4 style='position: absolute;left:499px;top:310px'> Medicinal Use </h4> <h4 style='position: absolute;left:980px;top:310px'> Cultivation </h4> 
+			<h4 style='position: absolute;left:2%;top:43%;'> Recreational Use </h4> <h4 style='position: absolute;left:39%;top:43%'> Medicinal Use  </h4> <h4 style='position: absolute;left:77.5%;top:43%'> Cultivation </h4> 
 
-			<h4 style='position: absolute;left:70px;top:330px;'> 51%  </h4> <h4 style='position: absolute;left:535px;top:330px'> 61% </h4> <h4 style='position: absolute;left:1010px;top:330px'> 46% </h4> 
+			<h4 style='position: absolute;left:70px;top:330px;'> <font>51% </font> </h4> <h4 style='position: absolute;left:535px;top:330px'> <font>61% </font></h4> <h4 style='position: absolute;left:1010px;top:330px'> <font> 46% </font></h4> 
 			</style>
 
    </div>
